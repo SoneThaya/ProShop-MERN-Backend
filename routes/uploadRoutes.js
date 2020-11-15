@@ -1,7 +1,6 @@
 import path from "path";
 import express from "express";
 import multer from "multer";
-
 const router = express.Router();
 
 const storage = multer.diskStorage({
@@ -30,8 +29,8 @@ function checkFileType(file, cb) {
 
 const upload = multer({
   storage,
-  fileFilter: function (req, file, db) {
-    checkFileType(file, db);
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
   },
 });
 
